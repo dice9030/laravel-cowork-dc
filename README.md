@@ -66,14 +66,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 ## Proyect
 <p align="center">
-    <img src="public/images/admin.JPG" width="300" alt="Admin">
+    <img src="public/images/admin.JPG" alt="Admin">
 </p>
 <p align="center">
-    <img src="public/images/client.JPG" width="300" alt="Admin">
+    <img src="public/images/client.JPG" alt="Admin">
 </p>
 <p align="center">
-    <img src="public/images/index.JPG" width="300" alt="Admin">
+    <img src="public/images/index.JPG" alt="Admin">
 </p>
 <p align="center">
-    <img src="public/images/login.JPG" width="300" alt="Admin">
+    <img src="public/images/login.JPG" alt="Admin">
 </p>
