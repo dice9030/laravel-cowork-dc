@@ -28,22 +28,8 @@
         <div class="user-info text-center mb-4">
             <i class="bi bi-person-circle display-4 text-white"></i>
             <h6 class="text-white mt-3 d-none d-md-block">{{ Auth::user()->name }}</h6>
-        </div>
-
-        <a href="{{ route('client.dashboard') }}"
-        class="sidebar-link {{ request()->routeIs('client.dashboard') ? 'active' : '' }}">
-            <i class="bi bi-house-door"></i> <span class="d-none d-md-inline">Espacios</span>
-        </a>
-
-        <a href="{{ route('reservas.mias') }}"
-        class="sidebar-link {{ request()->routeIs('reservas.mias') ? 'active' : '' }}">
-            <i class="bi bi-book"></i> <span class="d-none d-md-inline">Mis Reservas</span>
-        </a>
-
-        <a href="#" class="sidebar-link">
-            <i class="bi bi-gear"></i> <span class="d-none d-md-inline">Configuraciones</span>
-        </a>
-
+        </div>      
+        @include('client.layouts.menu')    
         <div class="divider mt-auto"></div>
 
         <form action="{{ route('client.logout') }}" method="POST" class="d-inline">

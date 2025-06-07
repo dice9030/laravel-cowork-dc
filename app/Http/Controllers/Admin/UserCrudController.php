@@ -15,6 +15,18 @@ class UserCrudController extends CrudController
     use \Backpack\CRUD\app\Http\Controllers\Operations\DeleteOperation;
     use \Backpack\CRUD\app\Http\Controllers\Operations\ShowOperation;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'apellido',
+        'telefono',
+        'sexo',
+        'pais',
+        'estado',
+        'perfil',
+    ];
+
     public function setup()
     {
         $this->crud->setModel('App\Models\User');
@@ -24,6 +36,13 @@ class UserCrudController extends CrudController
 
     protected function setupListOperation()
     {
+
+        CRUD::addColumn(['name' => 'apellido', 'label' => 'Apellido']);
+        CRUD::addColumn(['name' => 'telefono', 'label' => 'Teléfono']);
+        CRUD::addColumn(['name' => 'sexo', 'label' => 'Sexo']);
+        CRUD::addColumn(['name' => 'pais', 'label' => 'País']);
+        CRUD::addColumn(['name' => 'estado', 'label' => 'Estado']);
+
         CRUD::addColumn([
             'name'  => 'name',
             'label' => 'Nombre',
@@ -93,6 +112,49 @@ class UserCrudController extends CrudController
         // Hook para encriptar la contraseña antes de guardar
         $this->crud->getRequest()->merge([
             'password' => Hash::make($this->crud->getRequest()->password),
+        ]);
+
+        CRUD::addField([
+            'name' => 'apellido',
+            'label' => 'Apellido',
+            'type' => 'text',
+        ]);
+
+        CRUD::addField([
+            'name' => 'telefono',
+            'label' => 'Teléfono',
+            'type' => 'text',
+        ]);
+
+        CRUD::addField([
+            'name' => 'sexo',
+            'label' => 'Sexo',
+            'type' => 'select_from_array',
+            'options' => ['Masculino' => 'Masculino', 'Femenino' => 'Femenino', 'Otro' => 'Otro'],
+            'allows_null' => true,
+        ]);
+
+        CRUD::addField([
+            'name' => 'pais',
+            'label' => 'País',
+            'type' => 'text',
+        ]);
+
+       CRUD::addField([
+            'name'  => 'estado',
+            'label' => 'Estado',
+            'type'  => 'radio',
+            'options' => [
+                'Activo' => 'Activo',
+                'Inactivo' => 'Inactivo',
+            ],
+            'default' => 'Activo',
+        ]);
+
+        CRUD::addField([
+            'name' => 'perfil',
+            'label' => 'Perfil',
+            'type' => 'textarea',
         ]);
     }
 
